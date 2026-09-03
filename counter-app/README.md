@@ -1,16 +1,95 @@
-# React + Vite
+# Fourth App — React Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple, styled counter application built with **React** and the **useState** hook, using **Vite** as the build tool.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Increment, decrement, and reset counter functionality
+- Clean, card-based UI with a gradient background
+- Built using React functional components and hooks
+- Fast development experience powered by Vite
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** — UI library
+- **Vite** — Build tool and dev server
+- **CSS** — Custom styling (no external UI library)
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- npm (comes with Node.js)
+
+### Installation
+
+Clone the repository and navigate to this project:
+
+```bash
+git clone https://github.com/Maheshsusarla/React-JS-Course.git
+cd React-JS-Course/fourth-app
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+### Running the App
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in your terminal (usually `http://localhost:5173`) in your browser.
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+This generates an optimized build in the `dist` folder.
+
+## Project Structure
+
+```
+fourth-app/
+├── src/
+│   ├── App.jsx          # Root component
+│   ├── Counter.jsx       # Counter component (useState logic)
+│   ├── Counter.css       # Counter component styling
+│   ├── main.jsx           # Entry point
+│   └── index.css
+├── public/
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## How It Works
+
+The `Counter` component uses React's `useState` hook to manage a numeric `count` value:
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+- **Increment** button increases the count by 1
+- **Decrement** button decreases the count by 1
+- **Reset** button sets the count back to 0
+
+Each button click triggers a state update, causing React to re-render the component with the new value.
+
+## Author
+
+**Mahesh Susarla**  
+Part of the [React-JS-Course](https://github.com/Maheshsusarla/React-JS-Course) repository — a collection of React learning projects.
+
+## License
+
+This project is for learning purposes and is free to use.
