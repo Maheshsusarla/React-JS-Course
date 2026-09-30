@@ -1,0 +1,12 @@
+.active{
+    background-color: green;
+    color: white;
+    padding: 20px 10px;
+}
+
+
+.inactive{
+    background-color: red;
+    color: wheat;
+    padding: 20px 10px;
+}
