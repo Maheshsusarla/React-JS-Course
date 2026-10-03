@@ -19,28 +19,49 @@
 
 // 2nd  exp
 
-import { useState } from "react";
-import SearchBar from "./SearchBar";
-import ProductList from "./ProductList";
+// import { useState } from "react";
+// import SearchBar from "./SearchBar";
+// import ProductList from "./ProductList";
 
-function App() {
+// function App() {
 
-  const [searchText, setSearchText] = useState("");
+//   const [searchText, setSearchText] = useState("");
 
+//   return (
+//     <div>
+
+//       <SearchBar
+//         searchText={searchText}
+//         setSearchText={setSearchText}
+//       />
+
+//       <ProductList
+//         searchText={searchText}
+//       />
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// Props Drilling
+
+// Props drilling is the process of passing data from a parent component to a deeply nested child component through intermediate
+//  components that don't actually need the data themselves.
+
+
+import React from 'react'
+import Dashboard from './Dashboard'
+
+const App = () => {
+  const userName="Mahesh"
   return (
     <div>
-
-      <SearchBar
-        searchText={searchText}
-        setSearchText={setSearchText}
-      />
-
-      <ProductList
-        searchText={searchText}
-      />
-
+      <Dashboard userName={userName} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
