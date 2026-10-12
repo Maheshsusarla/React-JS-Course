@@ -1,0 +1,81 @@
+// import React from 'react'
+// import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+// import Home from './components/Home'
+// import About from './components/About'
+// import Contact from './components/Contact'
+// import Notfound from './components/Notfound'
+// import Navbar from './components/Navbar'
+// import './App.css'
+
+// const App = () => {
+//   const router=createBrowserRouter([
+//     {
+//       path:"/",
+//       element: <div>
+//         <Navbar />
+//         <Home/>
+//       </div>
+//     },
+//     {
+//       path:"/about",
+//       element:
+//       <div>
+//         <Navbar />
+//         <About/>
+//       </div>
+//     },
+//     {
+//       path:"/contact",
+//       element: <div>
+//         <Navbar />
+//         <Contact/>
+//       </div>
+//     },
+//     {
+//       path:"*",
+//       element:<Notfound/>
+//     },
+
+//   ])
+//   return (
+//     <div>
+      
+//       <RouterProvider router={router} />
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React from 'react'
+import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
+import Home from './components/Home'
+import About from './components/About'
+import Contact from './components/Contact'
+import Notfound from './components/Notfound'
+import Navbar from './components/Navbar'
+import './App.css'
+
+const App = () => {
+  return (
+    <div>
+      <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link>{" | "}
+        <Link to="/about">About</Link>{" | "}
+        <Link to="/contact">Contact</Link>
+      </nav>
+
+
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='*' element={<Notfound />} />
+      </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
+
+export default App
