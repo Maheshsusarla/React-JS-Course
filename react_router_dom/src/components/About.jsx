@@ -83,11 +83,31 @@
 
 // export default About
 
+// import React from 'react'
+
+// const About = () => {
+//   return (
+//     <div>About</div>
+//   )
+// }
+
+// export default About
+
+
 import React from 'react'
+import { NavLink, Outlet } from 'react-router-dom'
 
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <h1>About</h1>
+
+      <NavLink to="/about" end>Company</NavLink>
+      <NavLink to="/about/team">Team</NavLink>
+
+      {/* Child page appears here */}
+      <Outlet />
+    </div>
   )
 }
 
