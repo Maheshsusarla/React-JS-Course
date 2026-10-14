@@ -236,27 +236,71 @@
 
 
 
+// import React from 'react'
+// import { BrowserRouter,Routes, Route } from 'react-router-dom'
+// import Home from './components/Home'
+// import About from './components/About'
+// import Team from './components/Team'
+// import Company from './components/Company'
+
+// const App = () => {
+//   return (
+//    <BrowserRouter>
+//     <Routes>
+//       <Route path="/" element={<Home />} />
+
+//       {/* Parent route */}
+//       <Route path="/about" element={<About />}>
+//         {/* Child routes */}
+//         <Route index element={<Company />} />   {/* /about */}
+//         <Route path="team" element={<Team />} /> {/* /about/team */}
+//       </Route>
+//     </Routes>
+//    </BrowserRouter>
+//   )
+// }
+
+// export default App
+
+
+// usenavigate
+
 import React from 'react'
-import { BrowserRouter,Routes, Route } from 'react-router-dom'
-import Home from './components/Home'
-import About from './components/About'
-import Team from './components/Team'
-import Company from './components/Company'
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Navbar from './pages/Navbar'
+import About from './pages/About'
 
 const App = () => {
+  const router=createBrowserRouter([
+    {
+      path:"/",
+      element: <div>
+        <Navbar />
+        <Home />
+      </div>
+    },
+     {
+      path:"/login",
+      element: <div>
+        <Navbar />
+        <Login />
+      </div>
+    },
+     {
+      path:"/about",
+      element: <div>
+        <Navbar />
+        <About />
+      </div>
+    },
+  ])
   return (
-   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
 
-      {/* Parent route */}
-      <Route path="/about" element={<About />}>
-        {/* Child routes */}
-        <Route index element={<Company />} />   {/* /about */}
-        <Route path="team" element={<Team />} /> {/* /about/team */}
-      </Route>
-    </Routes>
-   </BrowserRouter>
+    <div>
+      <RouterProvider  router={router}/>
+    </div>
   )
 }
 
