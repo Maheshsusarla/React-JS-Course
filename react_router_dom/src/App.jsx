@@ -265,14 +265,62 @@
 
 // usenavigate
 
-import React from 'react'
+// import React from 'react'
+// import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+// import Home from './pages/Home'
+// import Login from './pages/Login'
+// import Navbar from './pages/Navbar'
+// import About from './pages/About'
+
+// const App = () => {
+//   const router=createBrowserRouter([
+//     {
+//       path:"/",
+//       element: <div>
+//         <Navbar />
+//         <Home />
+//       </div>
+//     },
+//      {
+//       path:"/login",
+//       element: <div>
+//         <Navbar />
+//         <Login />
+//       </div>
+//     },
+//      {
+//       path:"/about",
+//       element: <div>
+//         <Navbar />
+//         <About />
+//       </div>
+//     },
+//   ])
+//   return (
+
+//     <div>
+//       <RouterProvider  router={router}/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// protected routs
+
+
+import React, { useState } from 'react'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Navbar from './pages/Navbar'
 import About from './pages/About'
-
+import ProtectedRoute from './pages/ProtectedRoute'
+import Products from './pages/Products'
 const App = () => {
+
+  const[isAuth,setIsAuth]=useState(false);
+
   const router=createBrowserRouter([
     {
       path:"/",
@@ -285,7 +333,7 @@ const App = () => {
       path:"/login",
       element: <div>
         <Navbar />
-        <Login />
+        <Login isAuth={isAuth} setIsAuth={setIsAuth} />
       </div>
     },
      {
@@ -293,6 +341,15 @@ const App = () => {
       element: <div>
         <Navbar />
         <About />
+      </div>
+    },
+     {
+      path:"/products",
+      element: <div>
+        <Navbar />
+        <ProtectedRoute  isAuth={isAuth}>
+          <Products/>
+        </ProtectedRoute>
       </div>
     },
   ])
